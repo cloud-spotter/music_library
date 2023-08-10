@@ -27,14 +27,22 @@ def test_get_all_records(db_connection): # See conftest.py to learn what `db_con
         Album(12, 'Ring Ring', 1973, 2)
     ]
     assert len(albums) == 12
+
 '''
-Get single record
+When #find is called on the AlbumRepository with an id
+It returns the album corresponding to that id 
 '''
-def test_get_single_record(db_connection):
+# def test_get_single_record(db_connection):
+#     db_connection.seed("seeds/music_library.sql")
+#     repository = AlbumRepository(db_connection)
+#     album = repository.find(3)
+#     assert album == Album(3, 'Waterloo', 1974, 2)
+
+def test_get_a_single_record(db_connection):
     db_connection.seed("seeds/music_library.sql")
     repository = AlbumRepository(db_connection)
-    album = repository.find(3)
-    assert album == Album(3, 'Waterloo', 1974, 2)
+    album = repository.find(7)
+    assert album == Album(7, 'Folklore', 2020, 3)
 
 '''
 Get a new entry in the album table
